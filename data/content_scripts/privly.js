@@ -978,12 +978,15 @@ if (platform === "CHROME") {
   });
 }
 
-if (platform == "FIREFOX") {
-  self.port.on("privlyStart", function(message) {
-    var confirmMessage = JSON.parse(message);
-    if (confirmMessage["start"] === "yes") {
-      privly.start();
+if (platform === "FIREFOX") {
+  Privly.message.messageExtension({
+    name: "requestPrivlyStart",
+    content: "Start Privly?"
+  }, true).then(function(response) {
+    if (response.name === "privlyStart") {
+      if (response.content === "yes") {
+        privly.start();
+      }
     }
   });
-  self.port.emit("requestPrivlyStart", "startPrivly?");
 }
