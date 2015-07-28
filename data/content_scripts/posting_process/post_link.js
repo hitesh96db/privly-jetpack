@@ -39,11 +39,12 @@ postingProcess.postPrivlyURL = function(message, sendResponse) {
       var pendingNode = document.getElementById("privly-pending-post-" + message.content.nodeId);
       if (pendingNode !== null) {
         // Target DOM node.
-        var node = document.querySelector("[data-privly-target-node='" + message.content.nodeId + "']");
+        var node = document.querySelector("[data-privly-target-" + message.content.nodeId + "=true]");
         // Status: success or failure
         // Determines if the Privly Application Tab needs to be closed.
         var postStatus;
         if (node !== null) {
+          node.removeAttribute("data-privly-target-" + message.content.nodeId);
           node.focus();
           // Click the form to trigger any click callbacks
           postingProcess.dispatchClickEvent(node);
