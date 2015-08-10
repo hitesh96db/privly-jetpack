@@ -1,3 +1,5 @@
 {
-  "extensions.privly.test": "true"
+  "extensions.privly.test": "true",
+  "extensions.privly.REPO_TOKEN": "HITESH_ROCKS",
+  "extensions.privly.extension_path": "/home/hitesh96db/Documents/privly-jetpack/"
 }

@@ -21,7 +21,7 @@ this.g = {
  
   // Extension load reason - install, upgrade, downgrade, update.
   loadReason: PrivlyXPCOM.getSelfObject().loadReason,
-
+  
   // Jetpack tabs object
   tabs: PrivlyXPCOM.getTabs(),
 
