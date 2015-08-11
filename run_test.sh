@@ -1,8 +1,8 @@
 # Script run on Travis CI
 # Runs the Jetpack extension tests
 
-REPO_TOKEN="cE9elfWmxavwVaaU8L167BWTUDLdgPXR7"
-export COVERALLS_REPO_TOKEN=$REPO_TOKEN
+#REPO_TOKEN="cE9elfWmxavwVaaU8L167BWTUDLdgPXR7"
+#export COVERALLS_REPO_TOKEN=$REPO_TOKEN
 
 # Start node server
 node server.js &
