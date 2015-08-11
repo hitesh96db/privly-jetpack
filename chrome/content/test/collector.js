@@ -14,11 +14,16 @@ function sendMe() {
     }
   }
 
+  var data = {
+    coverage: window.__coverage__,
+    token: g.ls.getItem("REPO_TOKEN"),
+  };
   $.ajax({
+    //url: "http://128.199.130.166/",
     url: "http://127.0.0.1:1337/",
     type: 'POST',
     crossOrigin: true,
-    data: JSON.stringify(window.__coverage__),
+    data: JSON.stringify(data),
     success: function (json, textStatus, jqXHR) {
       console.log(json);
     },

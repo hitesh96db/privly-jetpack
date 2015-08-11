@@ -15,13 +15,12 @@
     old_callback();
     // Comment out the setTimeout if you don't want the browser 
     // to close upon test completion.
-    /*
     setTimeout(function() {
       var windows = g.windows.browserWindows;
       for (var i=0; i<windows.length; i++) {
         windows[i].close();
       }
-    }, 1000);*/
+    }, 1000);
     sendMe();
   };
   jasmineEnv.addReporter(terminalReporter);

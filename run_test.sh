@@ -1,7 +1,11 @@
 # Script run on Travis CI
 # Runs the Jetpack extension tests
 
-REPO_TOKEN="HITESH_ROCKS"
+REPO_TOKEN="cE9elfWmxavwVaaU8L167BWTUDLdgPXR7"
+export COVERALLS_REPO_TOKEN=$REPO_TOKEN
+
+# Start node server
+node server.js &
 
 if [ -z "$TRAVIS" ]; then
   # Local Env
@@ -47,5 +51,11 @@ fi
 # Remove the instrumented files
 rm lib/*.in.js 
 rm -r lib/instrument/
+
+sed -i "s:$current_dir:replace_with_path:g" test.json
+sed -i "s:$REPO_TOKEN:replace_with_token:g" test.json
+
+cat coverage/lcov.info | coveralls
+killall -9 node
 
 exit 0
